@@ -39,6 +39,7 @@ case "$1" in
             $cmd >> "$stdout_log" 2>> "$stderr_log" &
         else
             sudo -u "$user" $cmd >> "$stdout_log" 2>> "$stderr_log" &
+        fi
 
         # To get the PID of the process, either use $! or extract the 
         # pid using ps. In case of the later, substitute command name
