@@ -57,6 +57,7 @@ case "$1" in
     if is_running; then
         echo -n "Stopping $name.."
         kill `get_pid`
+        rm -rf "$pid_file"
         for i in {1..10}
         do
             if ! is_running; then
@@ -97,8 +98,13 @@ case "$1" in
         exit 1
     fi
     ;;
+    force-stop)
+    killall -9 `get_pid`
+    rm -rf "$pid_file"
+    $0 status
+    ;;
     *)
-    echo "Usage: $0 {start|stop|restart|status}"
+    echo "Usage: $0 {start|stop|restart|status|force-stop}"
     exit 1
     ;;
 esac
