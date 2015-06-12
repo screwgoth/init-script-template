@@ -65,6 +65,12 @@ otherwise.
 
     /etc/init.d/algorithms status
 
+### Force Stop ###
+
+Forcefully stops the app and cleans up pid file to reset the state
+
+    /etc/init.d/algorithms force-stop
+
 Logging
 -------
 
